@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './navBar.module.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Technician from '../technician';
+import { Link } from 'react-router-dom';
+
 
 class NavBar extends Component{
     
@@ -11,14 +11,14 @@ class NavBar extends Component{
             textDecoration: 'none',
         }
             return (
-            <Router>
                 <div className={styles.navBarContainer}>
                     <ul>
                         <li>Boilers</li>
-                        <Link style={linkStyle} to='/technician'>
-                            <Route path="/technician" exact component={Technician}/>
-                            <li>Technicians</li>
-                        </Link>
+                        <li>
+                            <Link style={linkStyle} to='/technician'>
+                            Technicians
+                            </Link>
+                        </li>
                         <li>Buildings</li>
                         <li>Maintenance services</li>
                         <li>Customers</li>
@@ -26,7 +26,6 @@ class NavBar extends Component{
                         <li>Settings</li>
                     </ul>
                 </div>
-            </Router>
         );
     }
 }

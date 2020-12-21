@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import MainLayout from './components/MainLayout/MainLayout'
 import './App.css';
+import Routes from './Routes';
+import { BrowserRouter as Router} from 'react-router-dom';
 
 class App extends Component{
   render() {
       return(
-        <MainLayout>
-          <p>
-            This text is in app.js
-          </p>
-        </MainLayout>
+        <Router>
+          <Routes />
+        </Router>
       );
   }
 }
