@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { ModalWrapper, ModalBoxSetup, ModalBg } from "../GeneralStyle";
+import { ModalWrapper, ModalBoxSetup, ModalBg } from "./GeneralStyle";
 import PropTypes from "prop-types";
-/*visible: boolean,dismiss: function on click on Close.*/ export default class ModalSetup extends Component {
+/*visible: boolean,dismiss: function on click on Close.*/
+export default class Modal extends Component {
   static propTypes = {
     visible: PropTypes.bool.isRequired,
     dismiss: PropTypes.func.isRequired,

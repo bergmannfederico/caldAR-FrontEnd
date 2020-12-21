@@ -10,7 +10,6 @@ class NavBar extends Component{
                      <li>Technicians</li>
                      <li>Buildings</li>
                      <li>Maintenance services</li>
-                     <li>Customers</li>
                      <li>Reports</li>
                      <li>Settings</li>
                  </ul>

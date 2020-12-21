@@ -1,15 +1,17 @@
-import React, {Component} from 'react';
-import styles from './section.module.css';
+import React, {Fragment} from 'react';
+//import section from './section.module.css';
+//import Modal from "../Modal/Modal";
+import BuildingList from "../BuildingList"
 
 
-class Section extends Component{
-    render() {
-        return (
-             <div className={styles.sectionContainer}>
-                 {this.props.body}
-             </div>
-        );
-    }
-}
+const Section = () => {
+  return (
+    <Fragment>
+      <BuildingList />
+      
+    </Fragment>
+  );
+};
+
 
 export default Section;
