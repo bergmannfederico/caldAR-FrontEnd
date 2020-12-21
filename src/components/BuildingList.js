@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import  {BuildingContext } from "../contexts/BuildingContext"
+import { BuildingContext } from "../contexts/BuildingContext";
 
 const BuildingList = () => {
   const { buildings, deleteBuilding } = useContext(BuildingContext);
@@ -37,8 +37,18 @@ const BuildingList = () => {
                 <td>{customerName}</td>
                 <td>{installedBoilers}</td>
                 <td>
-                  <button style={btnStyleDel} onclick={deleteBuilding(building.id)}>X</button>
-                  <button style={btnStyleEdit} onclick={deleteBuilding(building.id)} >Edit</button>
+                  <button
+                    style={btnStyleDel}
+                    onclick={deleteBuilding(building.id)}
+                  >
+                    X
+                  </button>
+                  <button
+                    style={btnStyleEdit}
+                    onclick={deleteBuilding(building.id)}
+                  >
+                    Edit
+                  </button>
                 </td>
               </tr>
             );
@@ -48,8 +58,8 @@ const BuildingList = () => {
             <td colSpan={4}>No buildings found</td>
           </tr>
         )}
-      </tbody>
-    </table>
+     </tbody>
+   </table>
   );
 };
 const btnStyleEdit = {

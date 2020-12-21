@@ -1,35 +1,36 @@
 import React, { createContext, useState, useEffect } from 'react';
 import uniqid from "uniqid";
+import buildingList from "../mocks/buildings"
 
-export const BuildingContext = createContext();
-const BuildingContextProvider = ({ children }) => {
-
-    function useBuildings() {
-    const [buildings, setBuildings] = useState([])
+ export const BuildingContext = createContext();
+ const BuildingContextProvider = ({ children }) => {
+ 
+  const [buildings, setBuildings] = useState([])
 
     useEffect(() => {
-        fetch("./mocks/buildings")
+        fetch(buildingList)
             .then(response => response.json())
-            .then(data => {
-                setBuildings(data)
+            .then(buildings => {
+                setBuildings(buildings)
             })
     }, [])
-        return buildings
-}
+
+
 
 const addBuilding = (building) => {
-  setBuildings([...useuildings, { ...building, id: uniqid() }]);
+  setBuildings([...buildings, { ...building, id: uniqid() }]);
 };
 
 const deleteBuilding = (id) => {
   setBuildings(buildings.filter((building) => building.id !== id));
     };
     
-    return (
-    <BuildingContext.Provider value={{ buildings, addBuilding, deleteBuilding}}>
-      {children}
+    
+return (
+    <BuildingContext.Provider value={{ buildings, deleteBuilding }}>
+        {children}
     </BuildingContext.Provider>
-  );
+);
 }
 
 export default BuildingContextProvider;

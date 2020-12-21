@@ -7,8 +7,7 @@ import BuildingList from "../BuildingList"
 const Section = () => {
   return (
     <Fragment>
-      <BuildingList />
-      
+      <BuildingList />      
     </Fragment>
   );
 };
