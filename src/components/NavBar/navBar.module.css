@@ -6,3 +6,6 @@
 ul{
     list-style: none;
 }
+li:hover{
+    font-weight: bolder;
+}
