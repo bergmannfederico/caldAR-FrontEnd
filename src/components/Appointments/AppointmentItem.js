@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Modal from "../Modal/Modal";
+import Modal from "./Modal/Modal";
 import "./Appointments.css";
 
 class AppointmentItem extends Component {

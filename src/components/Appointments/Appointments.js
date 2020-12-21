@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AppointmentItem from "./AppointmentItem";
 import PropTypes from "prop-types";
-import Modal from "../Modal/Modal";
+import Modal from "./Modal/Modal";
 
 class Appointments extends Component {
   state = {
