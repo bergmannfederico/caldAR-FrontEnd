@@ -6,7 +6,7 @@ class Footer extends Component{
         return (
              <div className={styles.footerContainer}>
                  <p>
-                     This is a Footer component
+                     CaldAR
                  </p>
              </div>
         );

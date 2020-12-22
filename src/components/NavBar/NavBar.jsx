@@ -12,7 +12,6 @@ function NavBar() {
       <ul>
         <li>Boilers</li>
         <li>Technicians</li>
-        <li>Buildings</li>
         <li>
           <Link style={linkStyle} to="/buildings">
             Buildings
