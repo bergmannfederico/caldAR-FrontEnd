@@ -26,19 +26,22 @@ const Buildings = () => {
           <tr key={item.id}>
             <td>{item.name}</td>
             <td>{item.address}</td>
-            <td>{ item.phone}</td>
+            <td>{item.phone}</td>
             <td>{item.customerId}</td>
             <td>{item.customerName}</td>
             <td>{item.installedBoilers}</td>
-            <td><button
-              style={btnStyleDel}
-              //onClick={item.delBuilding.bind(this, item.id)}
-            >
-              X
-            </button></td>
-            <td><button
-              style={btnStyleEdit}
-              /*onClick={item.editBuilding.bind(
+            <td>
+              <button
+                style={btnStyleDel}
+                //onClick={item.delBuilding.bind(this, item.id)}
+              >
+                X
+              </button>
+            </td>
+            <td>
+              <button
+                style={btnStyleEdit}
+                /*onClick={item.editBuilding.bind(
                item,item.id ,
                 item.name,
                 item.address,
@@ -46,9 +49,10 @@ const Buildings = () => {
                 item.customerId,
                 item.customerName
               )}*/
-            >
-              Edit
-            </button></td>
+              >
+                Edit
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
