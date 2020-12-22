@@ -1,14 +1,13 @@
-import React, { Fragment } from "react";
-//import section from './section.module.css';
+import React from "react";
+import section from './section.module.css';
 //import Modal from "../Modal/Modal";
-//import Buildings from "../Buildings"
 
-const Section = () => {
+const Section = ({children}) => {
   return (
-    <Fragment>
-    
-    </Fragment>
+      <section style={section.style}>
+        {children}
+      </section>
   );
 };
 
-export default Section;//
+export default Section;
