@@ -43,8 +43,8 @@ const AppointmentItem = (props) => {
 
 AppointmentItem.propTypes = {
   appointment: PropTypes.object.isRequired,
-    deleteAppointment: PropTypes.function.isRequired,
-    editAppointment: PropTypes.function.isRequired
+    deleteAppointment: PropTypes.func.isRequired,
+    editAppointment: PropTypes.func.isRequired
 };
 
 export default AppointmentItem;

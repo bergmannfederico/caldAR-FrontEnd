@@ -77,9 +77,9 @@ const ModalForm = (props) => {
 }
 
 ModalForm.propTypes = {
-    addEditAppointment: PropTypes.function.isRequired,
-    closeModal: PropTypes.function.isRequired,
-    appointment: PropTypes.object.isRequired,
+    addEditAppointment: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
+    appointment: PropTypes.object.isRequired
 };
 
 export default ModalForm;

@@ -28,9 +28,9 @@ const Modal = ({
 };
 
 Modal.propTypes = {
-  handleClose: PropTypes.function.isRequired,
+  handleClose: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
-  addEditAppointment: PropTypes.function.isRequired,
+  addEditAppointment: PropTypes.func.isRequired,
   appointment: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired
 };
