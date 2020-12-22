@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Buildings1 from "../mocks/buildings.json"
 
-function useBuildings() {
+/* function useBuildings() {
   const [buildings, setBuildings] = useState([]);
 
   useEffect(() => {
@@ -12,10 +13,16 @@ function useBuildings() {
   }, []);
 
   return buildings;
-}
+} */
 
-export default function Buildings() {
-  const buildings = useBuildings();
+
+const Buildings = ()  => {
+
+  const [buildings, setBuildings] = useState([]);
+
+  useEffect(() => {
+    setBuildings (Buildings1)
+  }, []);
 
   return (
     <div className="container mt-5" align="center">
@@ -53,3 +60,5 @@ export default function Buildings() {
     </div>
   );
 }
+
+export default Buildings;

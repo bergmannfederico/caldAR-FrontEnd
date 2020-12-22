@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import MainLayout from "./components/MainLayout/MainLayout";
 //import Technician from "./components/technician";
-import Buildings from "./Buildings";
+import Buildings from "./components/Buildings";
 
 function Routes() {
   return (
