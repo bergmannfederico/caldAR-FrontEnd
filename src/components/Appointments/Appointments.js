@@ -1,25 +1,25 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import AppointmentItem from "./AppointmentItem";
 import Modal from "./Modal/Modal";
-import "./Appointments.css"
-import data from '../../data/appointments.json'
+import "./Appointments.css";
+import data from "../../data/appointments.json";
 
 const Appointments = () => {
-
   const [show, setShow] = useState(false);
-  const [appointment, setAppointment] = useState({ id: "", buildingId: "", boilerId: "", technician: "" });
+  const [appointment, setAppointment] = useState({
+    id: "",
+    buildingId: "",
+    boilerId: "",
+    technician: "",
+  });
   const [appointments, setAppointments] = useState(data.appointments);
-
 
   // Delete Appointment
   const deleteAppointment = (id) => {
     console.log(id);
     setAppointments([
-        ...appointments.filter(
-          (appointment) => appointment.id !== id
-        ),
-      ],
-    );
+      ...appointments.filter((appointment) => appointment.id !== id),
+    ]);
   };
 
   // Add Appointment
@@ -33,14 +33,13 @@ const Appointments = () => {
       }
     });
     if (!exists) {
-      setAppointments([...appointments, appointment],
-      );
+      setAppointments([...appointments, appointment]);
     }
   };
 
   // Edit Appointment
   const editAppointment = (appointment) => {
-/*
+    /*
     console.log(appointment);
 */
     console.log(appointments);
@@ -51,7 +50,7 @@ const Appointments = () => {
           return appointment;
         }
         return oldApp;
-      }),
+      })
     );
     console.log(appointments);
   };
@@ -65,35 +64,35 @@ const Appointments = () => {
     setShow(false);
   };
 
-    return (
-      <div>
-        <ul className='ulTable'>
-          <li className='liTable'>Service number</li>
-          <li className='liTable'>Building</li>
-          <li className='liTable'>Boiler</li>
-          <li className='liTable'>Technician</li>
-          <li className='liTable'>Actions</li>
-        </ul>
-        {appointments.map((appointment) => (
-          <AppointmentItem
-            key={appointment.id}
-            appointment={appointment}
-            deleteAppointment={deleteAppointment}
-            editAppointment={editAppointment}
-          />
-        ))}
-        <Modal
-          title="Add Appointment"
-          show={show}
-          handleClose={hideModal}
-          addEditAppointment={addAppointment}
+  return (
+    <div>
+      <ul className="ulTable">
+        <li className="liTable">Service number</li>
+        <li className="liTable">Building</li>
+        <li className="liTable">Boiler</li>
+        <li className="liTable">Technician</li>
+        <li className="liTable">Actions</li>
+      </ul>
+      {appointments.map((appointment) => (
+        <AppointmentItem
+          key={appointment.id}
           appointment={appointment}
+          deleteAppointment={deleteAppointment}
+          editAppointment={editAppointment}
         />
-        <button type="button" onClick={showModal}>
-          Add Appointment
-        </button>
-      </div>
-    );
-}
+      ))}
+      <Modal
+        title="Add Appointment"
+        show={show}
+        handleClose={hideModal}
+        addEditAppointment={addAppointment}
+        appointment={appointment}
+      />
+      <button type="button" onClick={showModal}>
+        Add Appointment
+      </button>
+    </div>
+  );
+};
 
 export default Appointments;

@@ -32,7 +32,7 @@ Modal.propTypes = {
   show: PropTypes.bool.isRequired,
   addEditAppointment: PropTypes.func.isRequired,
   appointment: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default Modal;
