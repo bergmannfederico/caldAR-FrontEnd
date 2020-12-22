@@ -6,7 +6,7 @@ class Header extends Component{
         return (
              <div className={styles.headerContainer}>
                  <p>
-                     This is a Header component
+                     {this.props.title}
                  </p>
              </div>
         );

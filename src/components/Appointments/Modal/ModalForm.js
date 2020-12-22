@@ -1,64 +1,85 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
+import PropTypes from "prop-types";
 
-class ModalForm extends Component {
-  state = {
-    id: this.props.appointment.id,
-    buildingId: this.props.appointment.buildingId,
-    boilerId: this.props.appointment.boilerId,
-    technician: this.props.appointment.technician,
-  };
+const ModalForm = (props) => {
+    const [id, setId] = useState(props.appointment.id);
+    const [buildingId, setBuildingId] = useState(props.appointment.buildingId);
+    const [boilerId, setBoilerId] = useState(props.appointment.boilerId);
+    const [technician, setTechnician] = useState(props.appointment.technician);
 
   // Sumbit Form
-  onSubmit = (e) => {
+  const onSubmit = (e) => {
+      console.log(props.appointment.id);
     e.preventDefault();
-    this.props.closeModal();
-    this.props.addEditAppointment(this.state);
-    this.setState({
-      id: "",
-      buildingId: "",
-      boilerId: "",
-      technician: "",
-    });
+    props.closeModal();
+    console.log({id, buildingId, boilerId, technician});
+    props.addEditAppointment({id, buildingId, boilerId, technician});
+    if(props.appointment.id===''){
+        setId('');
+        setBuildingId('');
+        setBoilerId('');
+        setTechnician('');
+    }
   };
 
   // Edit inputs on change
-  handleChange = (e) => this.setState({ [e.target.name]: e.target.value });
+    const handleChange = (e) => {
+        switch(e.target.name){
+            case 'id':
+                setId(e.target.value);
+                break;
+            case 'buildingId':
+                setBuildingId(e.target.value);
+                break;
+            case 'boilerId':
+                setBoilerId(e.target.value);
+                break;
+            case 'technician':
+                setTechnician(e.target.value);
+                break;
+        }
+    }
 
-  render() {
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={onSubmit}>
         <input
           type="number"
           name="id"
           placeholder="Service Number"
-          value={this.state.id}
-          onChange={this.handleChange}
+          value={id}
+          onChange={handleChange}
+          readOnly={props.appointment.id ? "readOnly" : ""}
         />
         <input
           type="number"
           name="buildingId"
           placeholder="Building ID"
-          value={this.state.buildingId}
-          onChange={this.handleChange}
+          value={buildingId}
+          onChange={handleChange}
         />
         <input
           type="number"
           name="boilerId"
           placeholder="Boiler ID"
-          value={this.state.boilerId}
-          onChange={this.handleChange}
+          value={boilerId}
+          onChange={handleChange}
         />
         <input
           type="text"
           name="technician"
           placeholder="Technician"
-          value={this.state.technician}
-          onChange={this.handleChange}
+          value={technician}
+          onChange={handleChange}
         />
         <button>Submit</button>
       </form>
     );
-  }
 }
+
+ModalForm.propTypes = {
+    addEditAppointment: PropTypes.function.isRequired,
+    closeModal: PropTypes.function.isRequired,
+    appointment: PropTypes.object.isRequired,
+};
 
 export default ModalForm;

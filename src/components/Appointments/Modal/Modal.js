@@ -1,6 +1,7 @@
 import React from "react";
 import "./Modal.css";
 import ModalForm from "./ModalForm";
+import PropTypes from "prop-types";
 
 const Modal = ({
   handleClose,
@@ -24,6 +25,14 @@ const Modal = ({
       </section>
     </div>
   );
+};
+
+Modal.propTypes = {
+  handleClose: PropTypes.function.isRequired,
+  show: PropTypes.bool.isRequired,
+  addEditAppointment: PropTypes.function.isRequired,
+  appointment: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default Modal;

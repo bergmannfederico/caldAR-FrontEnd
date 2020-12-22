@@ -6,16 +6,20 @@ import Section from '../Section/Section';
 import styles from './mainLayaout.module.css';
 
 class MainLayout extends Component {
+
     render() {
+        console.log(this.props.children);
         return (
-             <div className={styles.appContainer}>
-                <Header/>
+            <div className={styles.appContainer}>
+                <Header title={this.props.title}/>
                 <div className={styles.navBarSectionContainer}>
                     <NavBar/>
-                    <Section body={this.props.children}/>
+                    <Section>
+                        {this.props.children}
+                    </Section>
                 </div>
                 <Footer />
-             </div>
+            </div>
         );
     }
 }

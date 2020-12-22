@@ -14,14 +14,14 @@ a {
   text-decoration: none;
 }
 
-ul {
+.ulTable {
   list-style-type: none;
   display: flex;
   flex-basis: 100%;
   justify-content: space-around;
 }
 
-li {
+.liTable {
   text-align: center;
   width: 20%;
   padding: 10px 0;

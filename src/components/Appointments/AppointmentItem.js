@@ -1,49 +1,50 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import Modal from "./Modal/Modal";
-import "./Appointments.css";
+import "./Appointments.css"
 
-class AppointmentItem extends Component {
-  state = { show: false, appointment: this.props.appointment };
+const AppointmentItem = (props) => {
+    const [show, setShow] = useState(false);
 
-  hideModal = () => {
-    this.setState({ show: false });
+
+  const hideModal = () => {
+    setShow(false);
   };
 
-  render() {
-    const { id, buildingId, boilerId, technician } = this.props.appointment;
+    const { id, buildingId, boilerId, technician } = props.appointment;
     return (
-      <ul>
-        <li>{id}</li>
-        <li>{buildingId}</li>
-        <li>{boilerId}</li>
-        <li>{technician}</li>
-        <li>
+      <ul className='ulTable'>
+        <li className='liTable'>{id}</li>
+        <li className='liTable'>{buildingId}</li>
+        <li className='liTable'>{boilerId}</li>
+        <li className='liTable'>{technician}</li>
+        <li className='liTable'>
           <button
             onClick={() => {
-              this.setState({ show: true });
+                setShow(true);
             }}
           >
             Edit
           </button>
-          <button onClick={this.props.deleteAppointment.bind(this, id)}>
+          <button onClick={props.deleteAppointment.bind(this, id)}>
             Delete
           </button>
         </li>
         <Modal
           title="Edit Appointment"
-          show={this.state.show}
-          handleClose={this.hideModal}
-          addEditAppointment={this.props.editAppointment}
-          appointment={this.props.appointment}
+          show={show}
+          handleClose={hideModal}
+          addEditAppointment={props.editAppointment}
+          appointment={props.appointment}
         />
       </ul>
     );
-  }
 }
 
 AppointmentItem.propTypes = {
   appointment: PropTypes.object.isRequired,
+    deleteAppointment: PropTypes.function.isRequired,
+    editAppointment: PropTypes.function.isRequired
 };
 
 export default AppointmentItem;
