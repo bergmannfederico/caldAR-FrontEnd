@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styles from './boilers.module.css';
 import Modal from "./Modal/Modal";
 import BoilersItem from './BoilersItem'
 
