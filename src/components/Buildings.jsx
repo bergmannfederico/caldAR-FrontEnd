@@ -5,6 +5,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Buildings = () => {
   const [buildings, setBuildings] = useState([]);
 
+  const deleteBuilding = id => {
+    setBuildings(buildings.filter((buildings) => buildings.id !== id));
+  }
+
   useEffect(() => {
     setBuildings(Buildings1);
   }, []);
@@ -12,6 +16,7 @@ const Buildings = () => {
   return (
     <table className="table table-striped">
       <thead>
+        <tr><td><button style={btnStyleAdd}>Add new building</button></td></tr>
         <tr>
           <th scope="col">Name</th>
           <th scope="col">Address</th>
@@ -32,14 +37,6 @@ const Buildings = () => {
             <td>{item.installedBoilers}</td>
             <td>
               <button
-                style={btnStyleDel}
-                //onClick={item.delBuilding.bind(this, item.id)}
-              >
-                X
-              </button>
-            </td>
-            <td>
-              <button
                 style={btnStyleEdit}
                 /*onClick={item.editBuilding.bind(
                item,item.id ,
@@ -51,6 +48,17 @@ const Buildings = () => {
               )}*/
               >
                 Edit
+              </button>
+            </td>
+            <td>
+              <button style={btnStyleEdit}>View</button>
+            </td>
+            <td>
+              <button
+                style={btnStyleDel}
+               onClick={deleteBuilding.bind(this, item.id)}
+              >
+                X
               </button>
             </td>
           </tr>
@@ -76,6 +84,15 @@ const btnStyleDel = {
   borderRadius: "50%",
   cursor: "pointer",
   float: "right",
+};
+const btnStyleAdd = {
+  background: "#193C78",
+  color: "#fff",
+  border: "none",
+  padding: "5px 5px",
+  cursor: "pointer",
+  float: "right",
+  
 };
 
 export default Buildings;
