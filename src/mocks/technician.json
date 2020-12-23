@@ -1,0 +1,81 @@
+[{
+    "id": 1,
+    "full_name": "Mendie Simmig",
+    "email": "msimmig0@wix.com",
+    "boiler_type": ["A","B"],
+    "hours_worked": 117,
+    "hour_rate": "$106.39"
+  }, 
+  {
+    "id": 2,
+    "full_name": "Lanette Tyer",
+    "email": "ltyer1@dell.com",
+    "boiler_type": ["D"],
+    "hours_worked": 28,
+    "hour_rate": "$248.26"
+  },
+  {
+    "id": 3,
+    "full_name": "Rawley Quarry",
+    "email": "rquarry2@moonfruit.com",
+    "boiler_type": ["A","D"],
+    "hours_worked": 43,
+    "hour_rate": "$260.32"
+  },
+  {
+    "id": 4,
+    "full_name": "Diane Breinlein",
+    "email": "dbreinlein3@dagondesign.com",
+    "boiler_type": ["B", "D"],
+    "hours_worked": 26,
+    "hour_rate": "$297.25"
+  },
+  {
+    "id": 5,
+    "full_name": "Doria Fyfield",
+    "email": "dfyfield4@intel.com",
+    "boiler_type": ["B"],
+    "hours_worked": 77,
+    "hour_rate": "$115.92"
+  },
+  {
+    "id": 6,
+    "full_name": "Ellerey Jodlowski",
+    "email": "ejodlowski5@theatlantic.com",
+    "boiler_type": ["A"],
+    "hours_worked": 65,
+    "hour_rate": "$254.45"
+  },
+  {
+    "id": 7,
+    "full_name": "Mirna McGilroy",
+    "email": "mmcgilroy6@ning.com",
+    "boiler_type": ["A","B"],
+    "hours_worked": 110,
+    "hour_rate": "$199.02"
+  },
+  {
+    "id": 8,
+    "full_name": "Aaron Warfield",
+    "email": "awarfield7@freewebs.com",
+    "boiler_type": ["D"],
+    "hours_worked": 80,
+    "hour_rate": "$121.18"
+  },
+  {
+    "id": 9,
+    "full_name": "Dacia Fuidge",
+    "email": "dfuidge8@reddit.com",
+    "boiler_type": ["B"],
+    "hours_worked": 71,
+    "hour_rate": "$107.44"
+  },
+  {
+    "id": 10,
+    "full_name": "Marne Yaus",
+    "email": "myaus9@trellian.com",
+    "boiler_type": ["A", "D"],
+    "hours_worked": 106,
+    "hour_rate": "$134.39"
+  }
+]

@@ -10,7 +10,7 @@ class Routes extends Component{
       return(
         <Switch>
         {//<Redirect exact push from="/" to="/"></Redirect>
-}
+        }
             <Route path="/technician" >
                 <MainLayout>
                     <Technician />
