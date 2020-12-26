@@ -8,7 +8,6 @@ class Routes extends Component {
     return (
       <Switch>
         <Route path="/appointments">
-          {console.log("asd")}
           <MainLayout title="Appointments">
             <Appointments />
           </MainLayout>
