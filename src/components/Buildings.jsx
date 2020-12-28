@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Buildings1 from "../mocks/buildings.json";
+import Buildings1 from "../data/buildings.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
@@ -86,18 +86,18 @@ const Buildings = (props) => {
           <div>
             <Link to={"detail/" + row.id}>
               <Button color="dark" className="mr-2">
-                <FontAwesomeIcon icon={faEye} color="white" /> View
+                <FontAwesomeIcon icon={faEye} color="white" /> 
               </Button>
             </Link>
 
             <Link to={"edit/" + row.id}>
               <Button color="dark" className="mr-2">
-                <FontAwesomeIcon icon={faEdit} /> Edit
+                <FontAwesomeIcon icon={faEdit} /> 
               </Button>
             </Link>
 
             <Button color="dark" className="mr-2">
-              <FontAwesomeIcon icon={faTrash} /> Delete
+              <FontAwesomeIcon icon={faTrash} /> 
             </Button>
           </div>
         );
