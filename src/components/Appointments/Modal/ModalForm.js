@@ -37,6 +37,8 @@ const ModalForm = (props) => {
       case "technician":
         setTechnician(e.target.value);
         break;
+      default:
+        break;
     }
   };
 
