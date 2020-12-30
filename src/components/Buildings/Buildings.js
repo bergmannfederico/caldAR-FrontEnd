@@ -37,16 +37,26 @@ const Buildings = ({
 
   return (
     <div>
-      <ul className="ulTable">
-        <li className="liTable">Name</li>
-        <li className="liTable">Address</li>
-        <li className="liTable">Phone</li>
-        <li className="liTable">Customer ID</li>
-        <li className="liTable">Customer Name</li>
-        <li className="liTable">Installed Boilers</li>
-      </ul>
-      {buildings.map((building)=>(
-   <BuildingItem
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <button type="button" onClick={showModal}>
+              Add Building
+            </button>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Installed Boilers</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+      </table>
+      {buildings.map((building) => (
+        <BuildingItem
           key={building.id}
           building={building}
           deleteBuilding={deleteBuilding}
@@ -60,9 +70,6 @@ const Buildings = ({
         addEditBuilding={addBuilding}
         building={building}
       />
-      <button type="button" onClick={showModal}>
-        Add Building
-      </button>
     </div>
   );
 };

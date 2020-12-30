@@ -10,25 +10,24 @@ const BuildingItem = (props) => {
     setShow(false);
   };
 
-  const {
-    id,
-    name,
-    address,
-    phone,
-    customerId,
-    customerName,
-    installedBoilers,
-  } = props.building;
-  
+  const { id, name, address, phone, customerId, customerName, installedBoilers } = props.building;
   return (
+
     <ul className="ulTable">
-       <li className="liTable">{name}</li>
+      <li className="liTable">{name}</li>
       <li className="liTable">{address}</li>
       <li className="liTable">{phone}</li>
       <li className="liTable">{customerId}</li>
       <li className="liTable">{customerName}</li>
       <li className="liTable">{installedBoilers}</li>
       <li className="liTable">
+        <button
+          onClick={() => {
+            setShow(true);
+          }}
+        >
+          View
+        </button>
         <button
           onClick={() => {
             setShow(true);
