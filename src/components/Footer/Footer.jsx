@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import styles from './footer.module.css';
 
-class Footer extends Component{
-    render() {
+const Footer=()=>{
+    
         return (
              <div className={styles.footerContainer}>
                  <p>
-                     This is a Footer component
+                     CaldAR
                  </p>
              </div>
         );
     }
-}
 
 export default Footer;
