@@ -1,0 +1,24 @@
+{
+    "boilers": [
+        {
+            "id": 1,
+            "type": "A",
+            "description": "homely A"
+        },
+        {
+            "id": 2,
+            "type": "B",
+            "description": "homely B"
+        },
+        {
+            "id": 3,
+            "type": "C",
+            "description": "ecological"
+        },
+        {
+            "id": 4,
+            "type": "D",
+            "description": "industrial"
+        }
+    ]
+}
