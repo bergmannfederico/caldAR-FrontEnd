@@ -15,13 +15,16 @@ export const address = (value) =>
 export const phone = (value) =>
   /^\d{7,}$/.test(value)
     ? undefined
-        : "The number must be at least 7 digits, do not accept spaces, hyphens, or parentheses";
-    
+    : "The number must be at least 7 digits, do not accept spaces, hyphens, or parentheses";
+
 //export const customerId = (value) =>
 
 export const customerName = (value) =>
   /^(?:[-A-Z]+ )+[-A-Z]+$/i.test(value)
     ? undefined
-        : "The name must be longer than 6 characters long and must contain at least one white space";
-    
+    : "The name must be longer than 6 characters long and must contain at least one white space";
+
 //export const installedBoilers = (value) =>
+
+export const composeValidators = (...validators) => (value) =>
+  validators.reduce((error, validator) => error || validator(value), undefined);

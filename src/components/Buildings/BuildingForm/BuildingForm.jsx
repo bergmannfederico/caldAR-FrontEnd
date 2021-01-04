@@ -1,6 +1,14 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
 import styles from "./characterForm.module.css";
+import {
+  required,
+  name,
+  address,
+  phone,
+  composeValidators,
+} from "../../../utils/validations";
+import TextInput from "../../../SharedComponents/TextInput";
 
 const BuildingForm = (props) => {
   const onSubmitBuilding = (values) => {
@@ -29,60 +37,60 @@ const BuildingForm = (props) => {
               <label>ID</label>
               <Field
                 name="id"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="ID"
-                validate={require}
+                validate={required}
               />
             </div>
             <div className={styles.inputWrapper}>
               <label>Name</label>
               <Field
                 name="name"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="Name"
-                validate={require}
+                validate={composeValidators(required, name)}
               />
             </div>
             <div className={styles.inputWrapper}>
               <label>Address</label>
               <Field
                 name="address"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="Address"
-                validate={require}
+                validate={composeValidators(required, address)}
               />
             </div>
             <div className={styles.inputWrapper}>
               <label>Phone</label>
               <Field
                 name="phone"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="Phone"
-                validate={require}
+                validate={composeValidators(required, phone)}
               />
             </div>
             <div className={styles.inputWrapper}>
               <label>Customer ID</label>
               <Field
                 name="customerId"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="CustomerID"
-                validate={require}
+                validate={required}
               />
             </div>
             <div className={styles.inputWrapper}>
               <label>Customer Name</label>
               <Field
                 name="customerName"
-                component="input"
+                component={TextInput}
                 type="text"
                 placeholder="Customer Name"
-                validate={require}
+                validate={required}
               />
             </div>
             <div className={styles.inputWrapper}>
@@ -90,7 +98,7 @@ const BuildingForm = (props) => {
               <Field
                 name="installedBoilers"
                 component="select"
-                validate={require}
+                validate={required}
               >
                 <option value="one">1</option>
                 <option value="two">2</option>
@@ -116,3 +124,5 @@ const BuildingForm = (props) => {
     </div>
   );
 };
+
+export default BuildingForm;
