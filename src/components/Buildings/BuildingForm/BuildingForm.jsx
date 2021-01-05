@@ -6,6 +6,7 @@ import {
   name,
   address,
   phone,
+  customerName,
   composeValidators,
 } from "../../../utils/validations";
 import TextInput from "../../../SharedComponents/TextInput";
@@ -90,7 +91,7 @@ const BuildingForm = (props) => {
                 component={TextInput}
                 type="text"
                 placeholder="Customer Name"
-                validate={required}
+                validate={composeValidators(required, customerName)}
               />
             </div>
             <div className={styles.inputWrapper}>
