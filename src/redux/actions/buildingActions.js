@@ -1,8 +1,14 @@
 import {
   ADD_BUILDING,
-  EDIT_BUILDING,
+  UPDATE_BUILDING,
   DELETE_BUILDING,
-} from '../types/actionTypes'
+  GET_BUILDINGS,
+} from "../types/actionTypes";
+
+export const getBuildings = (buildings) => ({
+  type: GET_BUILDINGS,
+  buildins: buildings,
+});
 
 export const addBuilding = (building) => ({
   type: ADD_BUILDING,
@@ -10,7 +16,7 @@ export const addBuilding = (building) => ({
 });
 
 export const editBuilding = (building) => ({
-  type: EDIT_BUILDING,
+  type: UPDATE_BUILDING,
   building: building,
 });
 

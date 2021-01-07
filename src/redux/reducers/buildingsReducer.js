@@ -1,40 +1,37 @@
 import {
+  GET_BUILDINGS,
   ADD_BUILDING,
-  EDIT_BUILDING,
   DELETE_BUILDING,
-} from '../types/actionTypes'
-
-import buildings from "../../data/buildings.json";
+} from "../types/actionTypes";
 
 const initialState = {
-  list: buildings,
+  isLoading: false,
+  list: [],
+  error: false,
 };
 
-const buildingsReducer = (state = initialState, action) => {
+export const buildingsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_BUILDINGS:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    
     case ADD_BUILDING:
       return {
         ...state,
-        list: [...state.list, action.building],
+        isLoading: true,
       };
-    case EDIT_BUILDING:
-      return {
-        ...state,
-        list: state.list.map((building) => {
-          return building.id === action.building.id
-            ? action.building
-            : building;
-        }),
-      };
+   
     case DELETE_BUILDING:
-      console.log(action.id);
       return {
         ...state,
-        list: state.list.filter((building) => building.id !== action.id),
+        isLoading: true,
       };
+    
     default:
       return state;
   }
 };
-
 export default buildingsReducer;

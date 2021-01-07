@@ -1,6 +1,6 @@
 import { SHOW_MODAL, HIDE_MODAL } from "../types/actionTypes";
 
-export const showMODAL = (modalType, meta = {}) => {
+export const showModal = (modalType, meta = {}) => {
   return {
     type: SHOW_MODAL,
     modalType,
@@ -8,7 +8,7 @@ export const showMODAL = (modalType, meta = {}) => {
   };
 };
 
-export const hideMODAL = () => {
+export const hideModal = () => {
   return {
     type: HIDE_MODAL,
   };

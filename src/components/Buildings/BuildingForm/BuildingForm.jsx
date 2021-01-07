@@ -1,6 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
+import {bindActionCreators} from "redux";
 import { Form, Field } from "react-final-form";
-import styles from "./characterForm.module.css";
+import { addBuilding as addBuildingAction } from "../../../redux/actions/buildingActions";
+import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
+import styles from "./buildingForm.module.css";
 import {
   required,
   name,
@@ -9,12 +13,14 @@ import {
   customerName,
   composeValidators,
 } from "../../../utils/validations";
-import TextInput from "../../../SharedComponents/TextInput";
+import TextInput from "../../SharedComponents/TextInput/TextInput";
+import Select from "../../SharedComponents/Select/Select";
 
 const BuildingForm = (props) => {
   const onSubmitBuilding = (values) => {
     console.log(values);
     props.addBuilding(values);
+    props.hideModal();
   };
 
   return (
@@ -98,7 +104,7 @@ const BuildingForm = (props) => {
               <label>Installed Boilers</label>
               <Field
                 name="installedBoilers"
-                component="select"
+                component={Select}
                 validate={required}
               >
                 <option value="one">1</option>
@@ -126,4 +132,11 @@ const BuildingForm = (props) => {
   );
 };
 
-export default BuildingForm;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    addBuilding: addBuildingAction,
+    hideModal: hideModalAction,
+  },dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(BuildingForm);

@@ -4,6 +4,7 @@ import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Section from "../Section/Section";
 import styles from "./mainLayout.module.css";
+import Modal from "../SharedComponents/Modal/Modal";
 
 const MainLayout = ({ children }) => {
   return (
@@ -15,6 +16,7 @@ const MainLayout = ({ children }) => {
       </div>
 
       <Footer />
+      <Modal/>
     </div>
   );
 };

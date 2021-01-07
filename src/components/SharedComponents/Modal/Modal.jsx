@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import MaterialModal from "material-modal";
 import { makeStyles } from "redux/index";
 import { connect } from "react-redux";
-import { bindingActionsCreators } from "redux";
-import { hideModal as hideModalAction } from "./redux/actions/modalActions";
-import modalTypes from "./redux/types/actionTypes";
-import styles from "./modal/modal.module.css";
-
-import BuildingForm from "./Buildings/BuildingForm/BuildingForm";
-import RemoveBuildingMessage from "./Buildings/RemoveBuildingMessage/RemoveBuildingMessage";
+import { bindActionCreators } from "redux";
+import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
+import modalTypes from "../../../redux/types/modalTypes";
+import styles from "./modal.module.css";
+import BuildingForm from "../../Buildings/BuildingForm/BuildingForm";
+import RemoveBuildingMessage from "../../Buildings/RemoveBuildingMessage/RemoveBuildingMessage";
 
 const getModalStyle = () => {
   const top = 50;
@@ -30,3 +29,57 @@ const useStyles = makeStyles((theme) => ({
     outline: 0,
   },
 }));
+
+const Modal = ({ show, modalType, meta, hideModal }) => {
+  const classes = useStyles();
+  const { modalStyle } = useState(getModalStyle);
+
+  let modalComponent;
+  switch (modalType) {
+    case modalTypes.ADD_BUILDING:
+      modalComponent = <BuildingForm />;
+      break;
+    case modalTypes.EDIT_BUILDING:
+      modalComponent = <BuildingForm buildingId={meta.id} />;
+      break;
+    case modalTypes.DELETE_BUILDING:
+      modalComponent = <RemoveBuildingMessage buildingId={meta.id} />;
+      break;
+    default:
+      modalComponent = null;
+      break;
+  }
+
+  return (
+    <MaterialModal
+      open={show}
+      onClose={hideModal}
+      className={styles.fixedLayout}
+      aria-labelledby="simple-modal-title"
+      aria-describedby="simple-modal-description"
+    >
+      <div style={modalStyle} className={classes.paper}>
+        {modalComponent}
+      </div>
+    </MaterialModal>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    show: state.modal.show,
+    modalType: state.modal.modalType,
+    meta: state.modal.meta,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {
+      hideModal: hideModalAction,
+    },
+    dispatch
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);
