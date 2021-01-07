@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import MaterialModal from "material-modal";
-import { makeStyles } from "redux/index";
+import MaterialModal from '@material-ui/core/Modal';
+import { makeStyles } from '@material-ui/core/styles';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
