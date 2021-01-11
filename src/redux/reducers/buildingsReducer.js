@@ -1,37 +1,82 @@
 import {
-  GET_BUILDINGS,
-  ADD_BUILDING,
-  DELETE_BUILDING,
+  GET_BUILDINGS_PENDING,
+  GET_BUILDINGS_FULFILLED,
+  GET_BUILDINGS_REJECTED,
+  POST_BUILDINGS_PENDING,
+  POST_BUILDINGS_FULFILLED,
+  POST_BUILDINGS_REJECTED,
+  PUT_BUILDINGS_PENDING,
+  PUT_BUILDINGS_FULFILLED,
+  PUT_BUILDINGS_REJECTED,
+  DELETE_BUILDINGS_PENDING,
+  DELETE_BUILDINGS_FULFILLED,
+  DELETE_BUILDINGS_REJECTED,
 } from "../types/actionTypes";
 
+
 const initialState = {
-  isLoading: false,
   list: [],
-  error: false,
 };
 
-export const buildingsReducer = (state = initialState, action) => {
+const buildingsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_BUILDINGS:
+    case GET_BUILDINGS_PENDING:
       return {
         ...state,
-        isLoading: true,
       };
-    
-    case ADD_BUILDING:
+    case GET_BUILDINGS_FULFILLED:
       return {
         ...state,
-        isLoading: true,
+        list: action.payload,
       };
-   
-    case DELETE_BUILDING:
+    case GET_BUILDINGS_REJECTED:
       return {
         ...state,
-        isLoading: true,
       };
-    
+    case POST_BUILDINGS_PENDING:
+      return {
+        ...state,
+      };
+    case POST_BUILDINGS_FULFILLED:
+      return {
+        ...state,
+        list: [...state.list, action.payload],
+      };
+    case POST_BUILDINGS_REJECTED:
+      return {
+        ...state,
+      };
+    case DELETE_BUILDINGS_PENDING:
+      return {
+        ...state,
+      };
+    case DELETE_BUILDINGS_FULFILLED:
+      return {
+        ...state,
+        list: state.list.filter((building) => building._id !== action.payload),
+      };
+    case DELETE_BUILDINGS_REJECTED:
+      return {
+        ...state,
+      };
+    case PUT_BUILDINGS_PENDING:
+      return {
+        ...state,
+      };
+    case PUT_BUILDINGS_FULFILLED:
+      return {
+        ...state,
+        list: state.list.map((building) =>
+          building._id === action.payload._id ? action.payload : building
+        ),
+      };
+    case PUT_BUILDINGS_REJECTED:
+      return {
+        ...state,
+      };
     default:
       return state;
   }
 };
+
 export default buildingsReducer;

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import { Form, Field } from "react-final-form";
-import { addBuilding as addBuildingAction } from "../../../redux/actions/buildingActions";
+import { postBuilding as postBuildingAction } from "../../../redux/actions/buildingActions";
 import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
 import styles from "./buildingForm.module.css";
 import {
@@ -19,16 +19,22 @@ import Select from "../../SharedComponents/Select/Select";
 const BuildingForm = (props) => {
   const onSubmitBuilding = (values) => {
     console.log(values);
-    props.addBuilding(values);
+    props.postBuilding(values);
     props.hideModal();
   };
 
+  const Boilers = [
+    { id: "A", value: "A" },
+    { id: "B", value: "B" },
+    { id: "C", value: "C" },
+    { id: "D", value: "D" },
+  ];
+
   return (
-    <div classname={styles.addBuildingContainer}>
-      <Form>
+    <div className={styles.addBuildingContainer}>
+      <Form
         onSubmit={onSubmitBuilding}
-        initialValues=
-        {{
+        initialValues={{
           id: "",
           name: "",
           address: "",
@@ -37,9 +43,10 @@ const BuildingForm = (props) => {
           customerName: "",
           installedBoilers: "",
         }}
-        render
+      
+        render=
         {({ handleSubmit, form, submitting, pristine, values }) => (
-          <form onsUbmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className={styles.inputWrapper}>
               <label>ID</label>
               <Field
@@ -101,10 +108,11 @@ const BuildingForm = (props) => {
               />
             </div>
             <div className={styles.inputWrapper}>
-              <label>Installed Boilers</label>
               <Field
                 name="installedBoilers"
                 component={Select}
+                label="Installed Boilers"
+                options={Boilers}
                 validate={required}
               >
                 <option value="one">1</option>
@@ -127,14 +135,14 @@ const BuildingForm = (props) => {
             </div>
           </form>
         )}
-      </Form>
+      />
     </div>
   );
 };
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addBuilding: addBuildingAction,
+    postBuilding: postBuildingAction,
     hideModal: hideModalAction,
   },dispatch);
 };

@@ -1,9 +1,9 @@
 import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
 import { deleteBuilding as deleteBuildingAction } from "../../../redux/actions/buildingActions";
-import styles from "./removeBuildingMessage";
+import styles from "./removeBuildingMessage.module.css";
 import React from "react";
 import { connect } from "react-redux";
-import bindActionsCreators from "reudux";
+import { bindActionCreators } from "redux";
 
 const RemoveBuildingMessage = ({ hideModal, deleteBuilding, buildingId }) => {
   const onDeleteBuilding = () => {
@@ -26,7 +26,7 @@ const RemoveBuildingMessage = ({ hideModal, deleteBuilding, buildingId }) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionsCreators(
+  return bindActionCreators(
     {
       hideModal: hideModalAction,
       deleteBuilding: deleteBuildingAction,

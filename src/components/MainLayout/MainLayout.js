@@ -14,9 +14,9 @@ const MainLayout = ({ children }) => {
         <NavBar />
         <Section>{children}</Section>
       </div>
-
       <Footer />
       <Modal/>
+      
     </div>
   );
 };

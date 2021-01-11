@@ -12,7 +12,7 @@ const Buildings = ({
   error,
   showModal,
   getBuildings,
-  deleteBuilding,
+
 }) => {
   useEffect(() => {
     getBuildings();
@@ -40,7 +40,7 @@ const Buildings = ({
 
   return (
     <div className={styles.buildingContainer}>
-      <button className={styles.addBuildingButton} onClick={() => showAddModal}>
+      <button onClick={() => showAddModal()}>
         Add building
       </button>
       <table className="table table-striped">
@@ -64,14 +64,14 @@ const Buildings = ({
               <td>{item.customerName}</td>
               <td>{item.installedBoilers}</td>
               <td>
-                <button style={btnStyleDel} onClick={showDeleteModal(item._id)}>
+                <button style={btnStyleDel} onClick={()=>showDeleteModal(item.id)}>
                   X
                 </button>
               </td>
               <td>
                 <button
                   style={btnStyleEdit}
-                  onClick={showUpdateModal(
+                  onClick={()=>(showUpdateModal(
                     item,
                     item.id,
                     item.name,
@@ -79,7 +79,7 @@ const Buildings = ({
                     item.phone,
                     item.customerId,
                     item.customerName
-                  )}
+                  ))}
                 >
                   Edit
                 </button>
@@ -127,4 +127,4 @@ const mapStateToProps = (state) => {
     buildings: state.buildings.list,
   };
 };
-export default connect(mapStateToProps, mapDispatchToProps)( Buildings);
+export default connect(mapStateToProps, mapDispatchToProps)(Buildings);
