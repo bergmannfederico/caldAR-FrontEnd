@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {bindActionCreators} from "redux";
 import { Form, Field } from "react-final-form";
 import { postBuilding as postBuildingAction } from "../../../redux/actions/buildingActions";
+import {putBuilding as putBuildingAction } from "../../../redux/actions/buildingActions";
 import { hideModal as hideModalAction } from "../../../redux/actions/modalActions";
 import styles from "./buildingForm.module.css";
 import {
@@ -20,6 +21,7 @@ const BuildingForm = (props) => {
   const onSubmitBuilding = (values) => {
     console.log(values);
     props.postBuilding(values);
+    props.putBuilding(values);
     props.hideModal();
   };
 
@@ -143,6 +145,7 @@ const BuildingForm = (props) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     postBuilding: postBuildingAction,
+    putBuilding: putBuildingAction,
     hideModal: hideModalAction,
   },dispatch);
 };

@@ -39,9 +39,9 @@ const Modal = ({ show, modalType, meta, hideModal }) => {
     case modalTypes.ADD_BUILDING:
       modalComponent = <BuildingForm />;
       break;
-   /* case modalTypes.UPDATE_BUILDING:
-      modalComponent = <BuildingForm buildingId={meta.id} />;
-      break;*/
+    case modalTypes.UPDATE_BUILDING:
+      modalComponent = <BuildingForm buildingId={meta.id} buildingName={meta.name}/>;
+      break;
     case modalTypes.DELETE_BUILDING:
       modalComponent = <RemoveBuildingMessage buildingId={meta.id} />;
       break;
